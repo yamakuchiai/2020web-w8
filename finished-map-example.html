@@ -17,6 +17,11 @@
       };
       var map = new google.maps.Map(document.getElementById("map"), opts);
     }
+      var mopts = {
+        positon: m_latlng,
+        };
+      var marker = new google.maps.Marker(mopts);
+      marker.serMap(map);
     </script>
 
     <script async defer
