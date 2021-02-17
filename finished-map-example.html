@@ -1,58 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Maps example</title>
-    <style>
-      #map_canvas {
-        width: 600px;
-        height: 600px;
-      }
-    </style>
+    <title>Google Maps API サンプル</title>
   </head>
   <body>
-    <h1>Simple maps example</h1>
+    <p>瑞穂運動場です。</p>
 
-    <div id="map_canvas"></div>
-    <script>
+    <div id="map" style="width:620px; height:400px"></div>
+
+    <script type="text/javascript">
     function initMap() {
-      var myOptions = {
-        zoom: 8,
-        center: {lat: 44.480759, lng: -2.242631},
-        mapTypeId: google.maps.MapTypeId.TERRAIN,
-        disableDefaultUI: true,
-        // Step 4. Customize displayed controls
-        zoomControl: true,
-        mapTypeControl: true,
-        scaleControl: true
-      }
-      var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-
-      // Step 2. Add custom icon
-
-      var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
-
-      var marker = new google.maps.Marker({
-        position: {lat: 53.480759, lng: -2.242631},
-        icon: iconBase + 'flag_maps.png',
-        map: map
-      });
-
-      // Step 3. Add info window
-
-      var contentString = '<div id="content"><h2 id="firstHeading" class="firstHeading">Custom info window</h2><p>This is a cool custom info window.</p></div>';
-
-      var infowindow = new google.maps.InfoWindow({
-        content: contentString
-      });
-
-      marker.addListener('click', function() {
-        infowindow.open(map, marker);
-      });
+      var opts = {
+        zoom: 15,
+        center: new google.maps.LatLng(35.1239654, 136.9417741)
+      };
+      var map = new google.maps.Map(document.getElementById("map"), opts);
     }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiV2ZbFIYuD3N4hzGLstSn2e4ZG5A7QlU&callback=initMap"
-    async defer></script>
+
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=APIKey&callback=initMap">
+    </script>
   </body>
 </html>
